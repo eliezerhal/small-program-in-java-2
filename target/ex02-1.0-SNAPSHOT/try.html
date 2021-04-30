@@ -1,0 +1,53 @@
+<!DOCTYPE html><html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Index</title>
+    <style>
+        .text{
+            text-align: left;
+        }
+        .design {
+            font-family: \"Times New Roman\", Times, serif;
+            height:150px;
+        }
+        #home {
+            width:1600px;
+            height:400px;
+        }
+    </style>
+    <script src="validation.js">
+    </script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12" style="text-align: left">
+        <div class="design">
+            <h1>Answers</h1>
+            <p> + db.getQuestions().get(questionNumber) </p>
+            <form action="dbManager" method="post">
+            <div class="form-group">
+                <label for="usr">Name:</label>
+                <input type="text" class="form-control" id="usr" name="usr">
+            </div>
+            <!--<div class="form-group">
+                <label for="ans">Answer:</label>
+                <input type="textarea" class="form-control" id="ans" name="ans">
+            </div>-->
+                <div class="form-group">
+                <label for="ans">Answer:</label>
+                <textarea class="form-control" rows="5" id="ans" name="ans"></textarea>
+            </div>
+
+                <button type="submit" class="btn btn-secondary" name="add">Add</button>
+                <a href="/"> <button a href style="margin: 3px" type=" button " class="btn btn-secondary">Cancel</button></a>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
