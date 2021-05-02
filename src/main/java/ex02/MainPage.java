@@ -1,4 +1,4 @@
-package com.example.ex02;
+package ex02;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -45,8 +45,8 @@ public class MainPage extends HttpServlet {
         for (int i = 0; i < db.getQuestions().size(); i++)
             out.println("<li class= \"list-group-item\">" +
                     "<p class=\"alert alert-info\">"+ db.getQuestions().get(i) + "</p>" +
-                    db.getNumOfAnswers(i) + " Answer "+"<button type=\"submit\" class=\"btn btn-secondary\" name=\"questionNumber\"  value = " + i + " >Answer </button>" +
-                    "<button data-id=\"i\" style=\"margin: 3px\" type=\" button \" class=\"btn btn-secondary\">Show answers</button><p id=\"ans\"></p></li>");
+                    db.getNumOfAnswers(i) + "Answer"+"<button type=\"submit\" class=\"btn btn-secondary\" name=\"questionNumber\"  value = " + i + " >Answer </button>" +
+                    "<button data-id=\"i\" style=\"margin: 3px\" type=\"button\" class=\"btn btn-secondary\">Show answers</button><p id=\"ans\"></p></li>");
         out.println("</ul></form>");
         request.getRequestDispatcher("end.html").include(request, response);
         out.close();

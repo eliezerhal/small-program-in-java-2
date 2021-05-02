@@ -1,5 +1,5 @@
 <div>
-    <form onsubmit= "return nameValidator()" action="dbManager" method="post">
+    <form action="dbManager" method="post">
     <div class="form-group">
         <label for="usr">Name:</label>
         <input type="text" class="form-control" id="usr" name="usr">
@@ -13,13 +13,3 @@
     </form>
     <a href="/"> <button a href style="margin: 3px" type=" button " class="btn btn-secondary">Cancel</button></a>
 </div>
-<script>
-    function nameValidator() {
-        let x = document.forms["myForm"]["fname"].value;
-        console.log("I'm there");
-        if (x == "") {
-            alert("Name must be filled out");
-            return false;
-        }
-    }
-</script>

@@ -1,4 +1,4 @@
-package com.example.ex02;
+package ex02;
 
 import javax.json.*;
 import javax.servlet.ServletContext;
@@ -43,7 +43,7 @@ public class JsonServlet extends HttpServlet {
             }
         }
         catch (GeneralException e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
     }
 

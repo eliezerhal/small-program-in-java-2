@@ -1,4 +1,4 @@
-package com.example.ex02;
+package ex02;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -16,7 +16,7 @@ public class In {
                 questions.add(line);
         } catch (Exception e) {
             //throw new Exception("error");
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
     }
     public ArrayList<String> getQuestions() {
