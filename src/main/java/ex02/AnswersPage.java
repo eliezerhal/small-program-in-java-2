@@ -15,18 +15,20 @@ public class AnswersPage extends HttpServlet {
         PrintWriter out = response.getWriter();
         ServletContext context = getServletContext();
         DataBase db = (DataBase) context.getAttribute("db");
-
         request.getRequestDispatcher("index.html").include(request, response);
+        /*out.println("<body>\n" +
+                "<div class=\"container-fluid\">\n" +
+                "    <div class=\"row\">\n" +
+                "        <div class=\"col-sm-8\">\n" +
+                "            <h1 class=\"alert alert-danger\">Welcome</h1>\n" +
+                "        </div>\n" +
+                "    </div>\n" +
+                "    <div class=\"row\">\n" +
+                "        <div class=\"col-sm-8; alert alert-secondary\">");*/
         Cookie cookie = new Cookie("numOfQuestion", String.valueOf(questionNumber));
         response.addCookie(cookie);
-        out.println("<body><div class=\"container-fluid\">" +
-                "    <div class=\"row\">" +
-                "        <div class=\"col-12\" style=\"text-align: left\">" +
-                "            <div class=\"design\">" +
-                "                <h1>Answers</h1>" +
-                "               <p>" + db.getQuestions().get(questionNumber) + "</p>");
+        out.println("<p>" + db.getQuestions().get(questionNumber) + "</p>");
         request.getRequestDispatcher("button.html").include(request, response);
-        request.getRequestDispatcher("end.html").include(request, response);
         out.close();
     }
 

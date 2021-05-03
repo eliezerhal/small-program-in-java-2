@@ -5,18 +5,22 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 }, false);
 
-    function button() {
-        let index = this.dataset.number;
-        fetch("JsonServlet?" + "questionNumber=" + index, {
+function button() {
+    let index = this.dataset.number;
+    fetch("JsonServlet?" + "questionNumber=" + index, {
         method: 'get',
         headers: {
-            'Content-Type': 'application/json' +
-                '',
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(ans => ans.json())
+        .then(answers => {
+            //document.getElementById("ans" + index).innerHTML = "answers[answersKey]";
+            document.getElementById("ans" + index).style.display="block" ;
+            let str = "";
+            for (const answersKey in answers) {
+                console.log(answers[answersKey]);
+                str += "<li>Author: " + answersKey.Name + "Answer: " + answersKey.Answer + "</li>";
+                document.getElementById("ans" + index).innerHTML = str;
             }
-        })
-            .then(ans => ans.json())
-            .then(answers => {
-                for (const answersKey in answers) {
-                    console.log(answers[answersKey])
-                }
-            })}
+        })}

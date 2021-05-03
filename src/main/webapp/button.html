@@ -1,15 +1,25 @@
-<div>
-    <form action="dbManager" method="post">
-    <div class="form-group">
-        <label for="usr">Name:</label>
-        <input type="text" class="form-control" id="usr" name="usr">
-    </div>
-    <div class="form-group">
-        <label for="ans">Answer:</label>
-        <textarea class="form-control" rows="5" id="ans" name="ans"></textarea>
-    </div>
 
-    <button type="submit" class="btn btn-secondary" name="add" id="add">Add</button>
-    </form>
-    <a href="/"> <button a href style="margin: 3px" type=" button " class="btn btn-secondary">Cancel</button></a>
+<form onsubmit = "return validatorForm ()" name="myform" action="/dbManager" method="post">
+    <div class="form-group">
+        <label for="myName">Your name </label>
+        <input type="text" class="form-control" id="myName" name="myName" placeholder="Enter Name" required>
+    </div>
+    <p class="alert alert-danger" id="errorMessage1" style="display:none"> </p>
+    <div class="form-group" >
+        <label for="myAnswer"> Response Area</label>
+        <textarea class="form-control" id="myAnswer" rows="5" name="text" required></textarea>
+        <p class="alert alert-danger" id ="errorMessage2" style="display:none"> </p>
+        <button style="margin: 3px" type="submit" class="btn btn-secondary" name="questionNumber" value=" ">Add</button>
+        <a class="button" href="/"> <button type="button" style="margin: 3px" class="btn btn-secondary">Cancel</button></a>
+
+    </div>
+</form>
+
 </div>
+</div>
+</div>
+
+<script>src="validation.js"</script>
+
+</body>
+</html>
