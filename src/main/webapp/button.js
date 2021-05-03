@@ -20,7 +20,8 @@ function button() {
             let str = "";
             for (const answersKey in answers) {
                 console.log(answers[answersKey]);
-                str += "<li>Author: " + answersKey.Name + "Answer: " + answersKey.Answer + "</li>";
-                document.getElementById("ans" + index).innerHTML = str;
+                str += "<li>Author: " + answers[answersKey].Name + "Answer: " + answers[answersKey].Answer + "</li>";
+                str += <button></button>;
             }
+            document.getElementById("ans" + index).innerHTML = str;
         })}
