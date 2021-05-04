@@ -41,12 +41,12 @@ public class MainPage extends HttpServlet {
                 "            <div class=\"design\">" +
                 "                <h1>Exercise 2</h1>" +
                 "       <h2>list of questions:</h2>");
-        out.println("<form action=\"/AnswersPage\" method=\"get\"><ul>");
+        /*out.println("<form action=\"/AnswersPage\" method=\"get\"><ul>");
         for (int i = 0; i < db.getQuestions().size(); i++) {
             out.println("<li class= \"list-group-item\"> <p class=\"alert alert-info\">" + db.getQuestions().get(i) + "</p>" +  db.getNumOfAnswers(i) +  "Answer <button type=\"submit\" class=\"btn btn-secondary\" name=\"questionNumber\" value=\"" + i + "\" >Answer</button>" +
                     "       <button type=\"button\" data-id=\"" + i + "\" style=\"display:block\" style=\"margin: 3px\"  class=\"btn btn-secondary\" name=\"Show answers\">Show answers</button><ul id=\"ans" + i + "\" style=\"display:block\"></ul></li>");
         }
-        out.println("</ul></form>");
+        out.println("</ul></form>");*/
         out.println("<script>src=\"button.js\"</script>");
         request.getRequestDispatcher("end.html").include(request, response);
         out.close();
