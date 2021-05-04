@@ -1,7 +1,7 @@
 package ex02;
 
 /**
- * This servlet
+ * This servlet takes care of updating the answers
  */
 
 import javax.servlet.*;
