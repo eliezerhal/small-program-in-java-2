@@ -35,12 +35,6 @@ public class MainPage extends HttpServlet {
         DataBase db = (DataBase) context.getAttribute("db");
 
         request.getRequestDispatcher("index.html").include(request, response);
-        /*out.println("<body>" +
-                "<div class=\"container-fluid\">" +
-                "    <div class=\"row\">" +
-                "        <div class=\"col-sm-8; alert alert-secondary\">" +
-                "       <h1>Exercise 2</h1>" +
-                "       <h2>list of questions:</h2>");*/
         out.println("<body><div class=\"container-fluid\">" +
                 "    <div class=\"row\">" +
                 "        <div class=\"col-sm-8\" style=\"text-align: left\">" +
@@ -48,13 +42,12 @@ public class MainPage extends HttpServlet {
                 "                <h1>Exercise 2</h1>" +
                 "       <h2>list of questions:</h2>");
         out.println("<form action=\"/AnswersPage\" method=\"get\"><ul>");
-        for (int i = 0; i < db.getQuestions().size(); i++)
-            out.println("<li class= \"list-group-item\">" +
-                    "<p class=\"alert alert-info\">"+ db.getQuestions().get(i) + "</p>" +
-                    db.getNumOfAnswers(i) + "Answer"+"<button type=\"submit\" class=\"btn btn-secondary\" name=\"questionNumber\" value=" + i + " >Answer</button>" +
-                    "<button data-id=\"i\" style=\"margin: 3px\" type=\"button\" class=\"btn btn-secondary\" name=\"Show answers\">Show answers</button><ul id=\"ans\"" + i + "style=\"display:none\"></ul></li>");
-        out.println("<script>src=\"button.js\"</script>");
+        for (int i = 0; i < db.getQuestions().size(); i++) {
+            out.println("<li class= \"list-group-item\"> <p class=\"alert alert-info\">" + db.getQuestions().get(i) + "</p>" +  db.getNumOfAnswers(i) +  "Answer <button type=\"submit\" class=\"btn btn-secondary\" name=\"questionNumber\" value=\"" + i + "\" >Answer</button>" +
+                    "       <button type=\"button\" data-id=\"" + i + "\" style=\"display:block\" style=\"margin: 3px\"  class=\"btn btn-secondary\" name=\"Show answers\">Show answers</button><ul id=\"ans" + i + "\" style=\"display:block\"></ul></li>");
+        }
         out.println("</ul></form>");
+        out.println("<script>src=\"button.js\"</script>");
         request.getRequestDispatcher("end.html").include(request, response);
         out.close();
     }

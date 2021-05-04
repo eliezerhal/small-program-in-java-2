@@ -1,4 +1,9 @@
-    function validatorForm(){
+/**
+ * This is a script that handles the correctness of adding the answers
+ * @returns {boolean} Is there an error or not
+
+ */
+function validatorForm(){
     let error = true;
     let name = document.myform.myName.value.trim();
     let text = document.myform.text.value.trim();

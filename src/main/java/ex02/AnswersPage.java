@@ -1,5 +1,9 @@
 package ex02;
 
+/**
+ * This servlet
+ */
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
