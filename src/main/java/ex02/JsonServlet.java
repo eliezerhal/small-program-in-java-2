@@ -12,18 +12,25 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 
 @WebServlet(name = "JsonServlet", value = "/JsonServlet")
+/**
+ * This servlet handles the creation of the json
+ */
 public class JsonServlet extends HttpServlet {
     @Override
+    /**
+     * This function handles the request of get
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
         // we build some random data to demonstrate JSON
         // ["items":"
-
+        System.out.println("hiiiii");
         ServletContext context = getServletContext();
         DataBase db = (DataBase) context.getAttribute("db");
         int index = Integer.parseInt(request.getParameter("questionNumber"));
+        System.out.println(index);
         try {
             ArrayList<String> answers = db.getAnswers(index);
             ArrayList<String> names = db.getNames(index);
@@ -48,6 +55,9 @@ public class JsonServlet extends HttpServlet {
     }
 
     @Override
+    /**
+     * This function handles the request of post
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }

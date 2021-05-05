@@ -14,10 +14,10 @@ public class DataBase {
         myQuestions = questions;
         int numOfQuestions = myQuestions.size();
         answers = new ArrayList[numOfQuestions];
-        for (int i = 0; i < answers.length; i++)
+        for (int i = 0; i < numOfQuestions; i++)
             answers[i] = new ArrayList<String>();
         names = new ArrayList[numOfQuestions];
-        for (int i = 0; i < names.length; i++)
+        for (int i = 0; i < numOfQuestions; i++)
             names[i] = new ArrayList<String>();
     }
     private final ArrayList<String> myQuestions;

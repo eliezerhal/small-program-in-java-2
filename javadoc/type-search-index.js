@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"ex02","l":"AnswersPage"},{"p":"ex02","l":"DataBase"},{"p":"ex02","l":"dbManager"},{"p":"ex02","l":"GeneralException"},{"p":"ex02","l":"In"},{"p":"ex02","l":"JsonServlet"},{"p":"ex02","l":"MainPage"}];updateSearchResults();

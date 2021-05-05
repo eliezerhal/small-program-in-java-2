@@ -13,6 +13,9 @@ import java.io.PrintWriter;
 @WebServlet(name = "AnswersPage", value = "/AnswersPage")
 public class AnswersPage extends HttpServlet {
     @Override
+    /**
+     * This function handles the request of get
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int questionNumber = Integer.parseInt(request.getParameter("questionNumber"));
         response.setContentType("text/html");
@@ -20,15 +23,7 @@ public class AnswersPage extends HttpServlet {
         ServletContext context = getServletContext();
         DataBase db = (DataBase) context.getAttribute("db");
         request.getRequestDispatcher("index.html").include(request, response);
-        /*out.println("<body>\n" +
-                "<div class=\"container-fluid\">\n" +
-                "    <div class=\"row\">\n" +
-                "        <div class=\"col-sm-8\">\n" +
-                "            <h1 class=\"alert alert-danger\">Welcome</h1>\n" +
-                "        </div>\n" +
-                "    </div>\n" +
-                "    <div class=\"row\">\n" +
-                "        <div class=\"col-sm-8; alert alert-secondary\">");*/
+
         Cookie cookie = new Cookie("numOfQuestion", String.valueOf(questionNumber));
         response.addCookie(cookie);
         out.println("<p>" + db.getQuestions().get(questionNumber) + "</p>");
@@ -37,6 +32,9 @@ public class AnswersPage extends HttpServlet {
     }
 
     @Override
+    /**
+     * This function handles the request of post
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("").include(request, response);
     }
