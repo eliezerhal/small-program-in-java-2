@@ -55,3 +55,35 @@
 </div>
 </body>
 </html>
+
+
+out.println("<script>document.addEventListener('DOMContentLoaded', function() {\n" +
+    "    let list = document.getElementsByName(\"Show answers\");\n" +
+    "    for(let i=0; i<list.length; i++) {\n" +
+    "        list[i].addEventListener(\"click\", button);\n" +
+    "    };\n" +
+    "}, false);\n" +
+    "\n" +
+    "function button() {\n" +
+    "    let index = this.dataset.id;\n" +
+    "    fetch(\"JsonServlet?\" + \"questionNumber=\" + index, {\n" +
+    "        method: 'get',\n" +
+    "        headers: {\n" +
+    "            'Content-Type': 'application/json'\n" +
+    "        }\n" +
+    "    })\n" +
+    "        .then(ans => ans.json())\n" +
+    "        .then(answers => {\n" +
+    "            let str = \"\";\n" +
+    "            str += \"<button style=\\\"margin: 3px\\\" type=\\\"button\\\" class=\\\"btn btn-secondary\\\" name=\\\"Hide answers\\\">Hide answers</button>\";" +
+    "            for (const answersKey in answers)\n" +
+    "                str += \"<li>Author: \" + answers[answersKey].Name + \"Answer: \" + answers[answersKey].Answer + \"</li>\";\n" +
+    "            document.getElementById(\"ans\" + index).innerHTML = str;\n" +
+    "            document.getElementById(\"ans\" + index).style.display=\"block\" ;\n" +
+    "            document.getElementById(\"Show answers\" + index).style.display=\"none\" ;\n" +
+    "        })\n" +
+    "}\n" +
+    "function hiden() {\n" +
+    "    let index = this.dataset.id;\n" +
+    "    document.getElementById(\"ans\" + index).style.display=\"none\" ;\n" +
+    "};</script>");

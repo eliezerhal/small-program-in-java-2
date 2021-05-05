@@ -26,7 +26,7 @@ public class AnswersPage extends HttpServlet {
 
         Cookie cookie = new Cookie("numOfQuestion", String.valueOf(questionNumber));
         response.addCookie(cookie);
-        out.println("<p>" + db.getQuestions().get(questionNumber) + "</p>");
+        out.println("<h2>" + db.getQuestions().get(questionNumber) + "</h2>");
         request.getRequestDispatcher("button.html").include(request, response);
         out.close();
     }
