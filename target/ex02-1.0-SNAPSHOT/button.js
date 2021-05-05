@@ -28,9 +28,8 @@ function button() {
                 str += "<button style=\"margin: 3px\" type=\"button\" class=\"btn btn-secondary\" name=\"Hide answers\">Hide answers</button>";
             }
             let hide = document.getElementsByName("Hide answers");
-            for(let i=0; i<hide.length; i++) {
+            for(let i=0; i<hide.length; i++)
                 hide[i].addEventListener("click", hiden);
-            }
             document.getElementById("ans" + index).innerHTML = str;
             document.getElementById("ans" + index).style.display="block" ;
             document.getElementById("Show answers" + index).style.display="none" ;

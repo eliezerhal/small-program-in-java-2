@@ -75,16 +75,17 @@ public class MainPage extends HttpServlet {
                 "        .then(ans => ans.json())\n" +
                 "        .then(answers => {\n" +
                 "            let str = \"\";\n" +
-                "            for (const answersKey in answers) {\n" +
-                "                console.log(\"hello\");\n" +
+                "            for (const answersKey in answers)\n" +
                 "                str += \"<li>Author: \" + answers[answersKey].Name + \"Answer: \" + answers[answersKey].Answer + \"</li>\";\n" +
-                "               \n" +
-                "            }\n" +
-                "            str += \"<button style=\"margin: 3px\" type=\"button\" class=\"btn btn-secondary\" name=\"Hide answers\">Hide answers</button>\";\n" +
+                "            str += \"<button style=\\\"margin: 3px\\\" type=\\\"button\\\" class=\\\"btn btn-secondary\\\" name=\\\"Hide answers\\\">Hide answers</button>\";" +
                 "            document.getElementById(\"ans\" + index).innerHTML = str;\n" +
                 "            document.getElementById(\"ans\" + index).style.display=\"block\" ;\n" +
                 "            document.getElementById(\"Show answers\" + index).style.display=\"none\" ;\n" +
-                "        })}</script>");
+                "        })\n" +
+                "}\n" +
+                "function hiden() {\n" +
+                "    document.getElementById(\"ans\" + index).style.display=\"none\" ;\n" +
+                "};</script>");
         request.getRequestDispatcher("end.html").include(request, response);
         out.close();
     }
