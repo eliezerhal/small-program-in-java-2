@@ -17,7 +17,7 @@ public class AnswersPage extends HttpServlet {
      * This function handles the request of get
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int questionNumber = Integer.parseInt(request.getParameter("questionNumber"));
+        try{int questionNumber = Integer.parseInt(request.getParameter("questionNumber"));
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         ServletContext context = getServletContext();
@@ -28,7 +28,8 @@ public class AnswersPage extends HttpServlet {
         response.addCookie(cookie);
         out.println("<h2>" + db.getQuestions().get(questionNumber) + "</h2>");
         request.getRequestDispatcher("button.html").include(request, response);
-        out.close();
+        out.close();}
+        catch (Exception e) {response.sendRedirect("/");}
     }
 
     @Override
@@ -36,6 +37,7 @@ public class AnswersPage extends HttpServlet {
      * This function handles the request of post
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/").include(request, response);
+        try{doGet(request, response);}
+        catch (Exception e) {response.sendRedirect("/");}
     }
 }

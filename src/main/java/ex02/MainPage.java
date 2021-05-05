@@ -53,8 +53,10 @@ public class MainPage extends HttpServlet {
         out.println("<form action=\"/AnswersPage\" method=\"get\">");
         out.println("<ul>");
         for (int i = 0; i < db.getQuestions().size(); i++)
-            out.println("<li class= \"list-group-item\"> <p class=\"alert alert-info\">" + db.getQuestions().get(i) + "</p>" +  db.getNumOfAnswers(i) +  " Answer <button type=\"submit\" class=\"btn btn-secondary\" name=\"questionNumber\" value=\"" + i + "\" >Answer</button>" +
-                    "       <button type=\"button\" data-id=\"" + i + "\" style=\"display:block\" style=\"margin: 3px\"  class=\"btn btn-secondary\" name=\"Show answers\" id=\"Show answers" + i + "\">Show answers</button><ul id=\"ans" + i + "\" style=\"display:block\"></ul></li>");
+            out.println("<li class= \"list-group-item\"> <p class=\"alert alert-info\">" + db.getQuestions().get(i) + "</p>" +  db.getNumOfAnswers(i) +  " Answers " +
+                    "<button type=\"submit\" class=\"btn btn-secondary\" name=\"questionNumber\" value=\"" + i + "\" >Answer</button>" +
+                    "<button type=\"button\" style=\"margin: 3px\" class=\"btn btn-secondary\" data-id=\"" + i + "\" style=\"display:block\" name=\"Show answers\" id=\"Show answers" + i + "\">Show answers</button>" +
+                    "<ul id=\"ans" + i + "\" style=\"display:block\"></ul></li>");
         out.println("</ul></form>");
         request.getRequestDispatcher("end.html").include(request, response);
         out.close();
@@ -64,7 +66,8 @@ public class MainPage extends HttpServlet {
     /**
      * This function handles the request of post
      */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
-
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try{doGet(request, response);}
+        catch (Exception e) {response.sendRedirect("/");}
     }
 }

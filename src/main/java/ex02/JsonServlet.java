@@ -45,8 +45,8 @@ public class JsonServlet extends HttpServlet {
                 jsonElement.close();
             }
         }
-        catch (GeneralException e) {
-            System.err.println(e.getMessage());
+        catch (Exception e) {
+            response.sendRedirect("/");
         }
     }
 
@@ -55,6 +55,7 @@ public class JsonServlet extends HttpServlet {
      * This function handles the request of post
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        try{doGet(request, response);}
+        catch (Exception e) {response.sendRedirect("/");}
     }
 }

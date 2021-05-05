@@ -47,30 +47,30 @@ public class DataBase {
      * @param name The name of author
      * @param index The index of question
      */
-    public void setAnswers(String answer, String name, int index) {
+    public void setAnswers(String answer, String name, int index) throws Exception {
         answers[index].add(answer);
         try {
             names[index].add(name);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            throw new Exception();
         }
     }
     /**
      * This function returns the array of answers
      * @return The array of answers
      */
-    public ArrayList<String> getAnswers(int index) throws GeneralException {
+    public ArrayList<String> getAnswers(int index) throws Exception {
         if(answers[index] == null)
-            throw new GeneralException("the answers is null");
+            throw new Exception();
         return answers[index];
     }
     /**
      * This function returns the array of names
      * @return The array of names
      */
-    public ArrayList<String> getNames(int index) throws GeneralException {
+    public ArrayList<String> getNames(int index) throws Exception {
         if(answers[index] == null)
-            throw new GeneralException("the answers is null");
+            throw new Exception();
         return names[index];
     }
 }

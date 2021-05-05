@@ -15,7 +15,7 @@ public class dbManager extends HttpServlet {
      * This function handles the request of get
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        response.sendRedirect("/");
     }
 
     @Override
@@ -34,7 +34,8 @@ public class dbManager extends HttpServlet {
                 String answer = request.getParameter("ans");
                 ServletContext context = getServletContext();
                 DataBase db = (DataBase) context.getAttribute("db");
-                db.setAnswers(answer, name, index);
+                try{db.setAnswers(answer, name, index);}
+                catch (Exception e) {response.sendRedirect("/");}
             }
         response.sendRedirect("/");
     }

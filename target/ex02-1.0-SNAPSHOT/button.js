@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     function hiden() {
         /*let index = this.dataset.id;
-        console.log(index);
         document.getElementById("ans" + index).style.display="none";
         document.getElementById("Show answers" + index).style.display="block";*/
         location.reload();
