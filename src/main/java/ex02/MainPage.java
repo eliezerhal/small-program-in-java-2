@@ -65,7 +65,7 @@ public class MainPage extends HttpServlet {
                 "}, false);\n" +
                 "\n" +
                 "function button() {\n" +
-                "    let index = this.dataset.number;\n" +
+                "    let index = this.dataset.id;\n" +
                 "    fetch(\"JsonServlet?\" + \"questionNumber=\" + index, {\n" +
                 "        method: 'get',\n" +
                 "        headers: {\n" +
@@ -74,17 +74,17 @@ public class MainPage extends HttpServlet {
                 "    })\n" +
                 "        .then(ans => ans.json())\n" +
                 "        .then(answers => {\n" +
-                "            //document.getElementById(\"ans\" + index).innerHTML = \"answers[answersKey]\";\n" +
                 "            let str = \"\";\n" +
                 "            for (const answersKey in answers) {\n" +
-                "                console.log(answers[answersKey]);\n" +
+                "                console.log(\"hello\");\n" +
                 "                str += \"<li>Author: \" + answers[answersKey].Name + \"Answer: \" + answers[answersKey].Answer + \"</li>\";\n" +
-                "                str += \"<button style=\"margin: 3px\" type=\"button\" class=\"btn btn-secondary\" name=\"Hide answers\">Hide answers</button>\";\n" +
+                "               \n" +
                 "            }\n" +
+                "            str += \"<button style=\"margin: 3px\" type=\"button\" class=\"btn btn-secondary\" name=\"Hide answers\">Hide answers</button>\";\n" +
                 "            document.getElementById(\"ans\" + index).innerHTML = str;\n" +
                 "            document.getElementById(\"ans\" + index).style.display=\"block\" ;\n" +
-                "        })\n" +
-                "}</script>");
+                "            document.getElementById(\"Show answers\" + index).style.display=\"none\" ;\n" +
+                "        })}</script>");
         request.getRequestDispatcher("end.html").include(request, response);
         out.close();
     }
