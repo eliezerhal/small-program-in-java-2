@@ -24,13 +24,9 @@ public class JsonServlet extends HttpServlet {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
-        // we build some random data to demonstrate JSON
-        // ["items":"
-        System.out.println("hiiiii");
         ServletContext context = getServletContext();
         DataBase db = (DataBase) context.getAttribute("db");
         int index = Integer.parseInt(request.getParameter("questionNumber"));
-        System.out.println(index);
         try {
             ArrayList<String> answers = db.getAnswers(index);
             ArrayList<String> names = db.getNames(index);

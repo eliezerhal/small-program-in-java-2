@@ -36,6 +36,6 @@ public class AnswersPage extends HttpServlet {
      * This function handles the request of post
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("").include(request, response);
+        request.getRequestDispatcher("/").include(request, response);
     }
 }
