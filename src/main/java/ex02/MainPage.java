@@ -11,6 +11,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet(name = "MainPage", value = "")
+/**
+ * This servlet is the main servlet of the program
+ */
 public class MainPage extends HttpServlet {
     private final In in = new In();
 

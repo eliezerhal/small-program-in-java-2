@@ -6,13 +6,22 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 
 @WebServlet(name = "dbManager", value = "/dbManager")
+/**
+ * This servlet handles the program's database
+ */
 public class dbManager extends HttpServlet {
     @Override
+    /**
+     * This function handles the request of get
+     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     @Override
+    /**
+     * This function handles the request of post
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int index;
         Cookie[] cookies = request.getCookies();
@@ -28,7 +37,5 @@ public class dbManager extends HttpServlet {
                 db.setAnswers(answer, name, index);
             }
         response.sendRedirect("/");
-
-        //System.out.println(db.getNumOfAnswers(index));
     }
 }
