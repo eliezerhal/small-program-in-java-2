@@ -55,8 +55,9 @@ public class MainPage extends HttpServlet {
         for (int i = 0; i < db.getQuestions().size(); i++)
             out.println("<li class= \"list-group-item\"> <p class=\"alert alert-info\">" + db.getQuestions().get(i) + "</p>" +  db.getNumOfAnswers(i) +  " Answers " +
                     "<button type=\"submit\" class=\"btn btn-secondary\" name=\"questionNumber\" value=\"" + i + "\" >Answer</button>" +
-                    "<button type=\"button\" style=\"margin: 3px\" class=\"btn btn-secondary\" data-id=\"" + i + "\" style=\"display:block\" name=\"Show answers\" id=\"Show answers" + i + "\">Show answers</button>" +
-                    "<ul id=\"ans" + i + "\" style=\"display:block\"></ul></li>");
+                    "<button type=\"button\" style=\"margin: 3px\" \"display:block\" class=\"btn btn-secondary\" data-id=\"" + i + "\" name=\"Show answers\" id=\"Show answers" + i + "\">Show answers</button>" +
+                    //"<button type=\"button\" style=\"margin: 3px\" \"display:none\" class=\"btn btn-secondary\" data-id=\"" + i + "\" name=\"Hide answers\" id=\"Show answers" + i + "\">Hide answers</button>" +
+                    "<ul id=\"ans" + i + "\" style=\"display:none\"></ul></li>");
         out.println("</ul></form>");
         request.getRequestDispatcher("end.html").include(request, response);
         out.close();
